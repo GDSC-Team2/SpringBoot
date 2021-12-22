@@ -2,6 +2,7 @@ package com.toyproject.book.springboot.web;
 
 import com.toyproject.book.springboot.config.auth.CustomOAuth2UserService;
 import com.toyproject.book.springboot.config.auth.dto.SessionUser;
+import com.toyproject.book.springboot.domain.user.User;
 import com.toyproject.book.springboot.domain.user.UserRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -27,7 +28,8 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 public class UserApiController {
 
     @GetMapping("/user")
-    public String currentUser(Principal principal){
-        return principal.getName();
+    public Object currentUser(Principal principal){
+        User userEntity = (User) principal;
+        return userEntity;
     }
 }
