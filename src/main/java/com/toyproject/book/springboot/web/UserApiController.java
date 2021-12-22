@@ -38,7 +38,7 @@ public class UserApiController {
 
     @DeleteMapping("/user/{email}")
     @ApiOperation(value = "사용자 삭제", notes = "현재 로그인한 사용자 삭제 API")
-    @ApiImplicitParam(name = "email", value = "사용자 이메일") 
+    @ApiImplicitParam(name = "email", value = "사용자 이메일")
     public void delete (@PathVariable String email){
         customOAuth2UserService.delete(email);
     }
