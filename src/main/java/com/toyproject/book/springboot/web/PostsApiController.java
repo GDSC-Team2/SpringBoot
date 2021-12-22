@@ -10,6 +10,8 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 // API를 요청받는 컨트롤러로 요청을 받는 영역
@@ -24,8 +26,8 @@ public class PostsApiController {
 
     @GetMapping("/home")  // 스프링부트 리액트 연동 테스트
     @ApiOperation(value = "연동 테스트", notes = "스프링부트와 리액트 연동을 테스트한다.")  // Swagger에 사용하는 API에 대한 간단 설명
-    public String getHome() {
-        return "redirect:http://localhost:3000";
+    public void exRedirect3(HttpServletResponse httpServletResponse) throws IOException {
+        httpServletResponse.sendRedirect("http://localhost:3000");
     }
 
     @PostMapping("/posts")  // 등록 API
