@@ -37,4 +37,11 @@ public class PostsService {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
         postsRepository.delete(posts);   //JpaRepository에서 제공하는 메소드
     }
+
+//    @Transactional(readOnly = true)
+//    public List<PostsListResponseDto> findAllDesc(){
+//        return postsRepository.findAllDesc().stream()
+//                .map(PostsListResponseDto::new)
+//                .collect(Collectors.toList());
+//    }
 }
