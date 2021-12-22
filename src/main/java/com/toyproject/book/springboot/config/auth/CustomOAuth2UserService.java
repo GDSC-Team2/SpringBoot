@@ -19,7 +19,7 @@ import java.util.Collections;
 
 @RequiredArgsConstructor
 @Service
-public class CustomOAuth2UserService extends DefaultOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
     private final UserRepository userRepository;
     private final HttpSession httpSession;
 
@@ -36,10 +36,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService implements
         User user = saveOrUpdate(attributes);
 
         httpSession.setAttribute("user", new SessionUser(user));
-
-        System.out.println("getClientRegistration : " + userRequest.getClientRegistration());
-        System.out.println("getAccessToken : " +userRequest.getAccessToken().getTokenValue());
-        System.out.println("getAttribute : " + super.loadUser(userRequest).getAttributes());
 
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),attributes.getAttributes(), attributes.getNameAttributeKey());
     }
