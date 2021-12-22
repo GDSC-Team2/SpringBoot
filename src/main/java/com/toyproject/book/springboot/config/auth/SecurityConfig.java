@@ -24,9 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout().logoutSuccessUrl("/api/v1/posts")    //수정 12/22 6:20
                 .and()
                     .oauth2Login()
-                        .redirectionEndpoint()
-                            .baseUri("http://localhost:3000")
-                            .and()
+//                        .redirectionEndpoint()
+//                            .baseUri("http://localhost:3000")
+//                            .and()
                         .userInfoEndpoint()
                             .userService(customOAuth2UserService);
     }
