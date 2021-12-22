@@ -48,4 +48,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         return userRepository.save(user);
     }
 
+    public SessionUser findByEmail(String email){
+        User user = userRepository.findByEmail(email).orElseThrow(()-> new IllegalArgumentException("no user : " + email));
+        return new SessionUser(user);
+    }
 }

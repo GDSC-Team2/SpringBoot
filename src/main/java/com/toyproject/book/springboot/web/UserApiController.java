@@ -26,10 +26,11 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 @RequestMapping("/api/v1")
 @Api(tags = {"ToyProject API Test"})  // Swagger 최상단 Controller 명칭
 public class UserApiController {
+    private CustomOAuth2UserService customOAuth2UserService;
 
     @GetMapping("/user")
-    public Object currentUser(Principal principal){
-        User userEntity = (User) principal;
-        return userEntity;
+    public SessionUser findByEmail(@PathVariable String email){
+        //return postsService.findById(id);
+        return customOAuth2UserService.findByEmail(email);
     }
 }
