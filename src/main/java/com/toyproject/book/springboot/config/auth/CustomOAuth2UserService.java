@@ -50,8 +50,9 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     }
 
     @Transactional
-    public void delete(OAuthAttributes attributes) {
-        User user = userRepository.findByEmail(attributes.getEmail()).orElseThrow(() -> new IllegalArgumentException("해당 이메일의 사용자가 없습니다. email : " + attributes.getEmail()));
+    public void delete(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("해당 이메일의 사용자가 없습니다. email : " + email));
         userRepository.delete(user);
     }
 }
+
