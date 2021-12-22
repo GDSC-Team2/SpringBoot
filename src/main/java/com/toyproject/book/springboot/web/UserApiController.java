@@ -33,6 +33,8 @@ public class UserApiController {
     private CustomOAuth2UserService customOAuth2UserService;
 
     @GetMapping("/user")
+    @ApiOperation(value = "사용자 정보", notes = "현재 로그인한 사용자 정보 받는 API")
+    @ApiImplicitParam(name = "사용자 object", value = "전체적인 정보")
     public Map<String, Object> userDetails(@AuthenticationPrincipal OAuth2User user) {
         return user.getAttributes();
     }
