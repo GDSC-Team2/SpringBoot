@@ -1,6 +1,7 @@
 package com.toyproject.book.springboot.web;
 
 import com.toyproject.book.springboot.config.auth.CustomOAuth2UserService;
+import com.toyproject.book.springboot.config.auth.dto.OAuthAttributes;
 import com.toyproject.book.springboot.config.auth.dto.SessionUser;
 import com.toyproject.book.springboot.domain.user.User;
 import com.toyproject.book.springboot.domain.user.UserRepository;
@@ -9,6 +10,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 
 import java.security.Principal;
+import java.util.Map;
 
 import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
@@ -28,8 +32,8 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 public class UserApiController {
     private CustomOAuth2UserService customOAuth2UserService;
 
-//    @GetMapping("/user")
-//    public SessionUser findByEmail(@PathVariable String email){
-//        return customOAuth2UserService.findByEmail(email);
-//    }
+    @GetMapping("/user")
+    public Map<String, Object> userDetails(@AuthenticationPrincipal OAuth2User user) {
+        return user.getAttributes();
+    }
 }
