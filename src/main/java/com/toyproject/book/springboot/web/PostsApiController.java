@@ -35,7 +35,7 @@ public class PostsApiController {
     }
 
     @GetMapping("/posts")  // 조회 API - 전체 조회
-    @ApiOperation(value = "글 조회", notes = "글 조회 API")
+    @ApiOperation(value = "글 조회", notes = "글 전체 조회 API")
     public List<Posts> getAllPosts() {
         return postsRepository.findAll();
     }
