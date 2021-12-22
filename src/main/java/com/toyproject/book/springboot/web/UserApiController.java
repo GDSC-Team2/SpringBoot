@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1")
@@ -27,6 +29,7 @@ public class UserApiController {
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user!=null){
             model.addAttribute("userName", user.getName());
+            log.print(user.getName());
         } return user.getName();
     }
 }
