@@ -27,6 +27,6 @@ public class UserApiController {
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user!=null){
             model.addAttribute("userName", user.getName());
-        } return "index";
+        } return user.getName();
     }
 }
