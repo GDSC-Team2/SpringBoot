@@ -28,9 +28,8 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 public class UserApiController {
     private CustomOAuth2UserService customOAuth2UserService;
 
-    @GetMapping("/user/{email}")
-    public SessionUser findByEmail(@PathVariable String email){
-        //return postsService.findById(id);
-        return customOAuth2UserService.findByEmail(email);
-    }
+//    @GetMapping("/user")
+//    public SessionUser findByEmail(@PathVariable String email){
+//        return customOAuth2UserService.findByEmail(email);
+//    }
 }

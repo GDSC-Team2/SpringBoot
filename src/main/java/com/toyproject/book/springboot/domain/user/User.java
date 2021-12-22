@@ -24,6 +24,12 @@ public class User extends BaseTimeEntity {
     @Column
     private String picture;
 
+    @Column(nullable = false)
+    private String provider;
+
+    @Column(nullable = false)
+    private String providerId;
+
     @Enumerated(EnumType.STRING)   //enum 문자열로 저장되도록
     @Column(nullable = false)
     private Role role;    //사용자 권한 관리
