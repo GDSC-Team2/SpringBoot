@@ -22,10 +22,10 @@ public class PostsApiController {
     private final PostsService postsService;
     private final PostsRepository postsRepository;
 
-    @GetMapping("/home")  // 스프링부트 리액트 연동 테스트
+    @RequestMapping("/home")  // 스프링부트 리액트 연동 테스트
     @ApiOperation(value = "연동 테스트", notes = "스프링부트와 리액트 연동을 테스트한다.")  // Swagger에 사용하는 API에 대한 간단 설명
     public String getHome() {
-        return "Hello World!";
+        return "http://localhost:3000";
     }
 
     @PostMapping("/posts")  // 등록 API
