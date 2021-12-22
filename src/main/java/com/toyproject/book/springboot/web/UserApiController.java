@@ -36,8 +36,8 @@ public class UserApiController {
         return user.getAttributes();
     }
 
-    @DeleteMapping("/user/{email}")
-    public void delete (@AuthenticationPrincipal OAuth2User user){
-        customOAuth2UserService.delete((OAuthAttributes)user);
-    }
+//    @DeleteMapping("/user/{email}")
+//    public void delete (@AuthenticationPrincipal OAuth2User user){
+//        customOAuth2UserService.delete((OAuthAttributes)user);
+//    }
 }
