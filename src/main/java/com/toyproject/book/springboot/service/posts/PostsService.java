@@ -38,10 +38,4 @@ public class PostsService {
         postsRepository.delete(posts);   //JpaRepository에서 제공하는 메소드
     }
 
-//    @Transactional(readOnly = true)
-//    public List<PostsListResponseDto> findAllDesc(){
-//        return postsRepository.findAllDesc().stream()
-//                .map(PostsListResponseDto::new)
-//                .collect(Collectors.toList());
-//    }
 }
