@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .oauth2Login()
                         .redirectionEndpoint()
-                            .baseUri("/oauth2/code/*")
+                            .baseUri("http://localhost:3000")
                             .and()
                         .userInfoEndpoint()
                             .userService(customOAuth2UserService);
