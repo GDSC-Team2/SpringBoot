@@ -23,6 +23,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .logout().logoutSuccessUrl("/api/v1/posts")    //수정 12/22 6:20
                 .and()
-                    .oauth2Login().userInfoEndpoint().userService(customOAuth2UserService);
+                    .oauth2Login()
+                        .redirectionEndpoint()
+                            .baseUri("/oauth2/callback/*")
+                            .and()
+                        .userInfoEndpoint()
+                            .userService(customOAuth2UserService);
     }
 }
