@@ -41,7 +41,7 @@ public class OAuthAttributes {
     }
 
     public User toEntity(){
-        if(isValidEmail(email)) {
+        if(isValidEmail((String) attributes.get("email"))) {
             return User.builder()
                     .name(name)
                     .email(email)
