@@ -39,22 +39,12 @@ public class OAuthAttributes {
     }
 
     public User toEntity(){
-        if (email == "wn8925@sookmyung.ac.kr") {
-            return User.builder()
-                    .name(name)
-                    .email(email)
-                    .picture(picture)
-                    .role(Role.USER)
-                    .build();
-        }
-        else {
-            return User.builder()
-                    .name(name)
-                    .email(email)
-                    .picture(picture)
-                    .role(Role.GUEST)
-                    .build();
-        }
+        return User.builder()
+                .name(name)
+                .email(email)
+                .picture(picture)
+                .role(Role.GUEST)
+                .build();
     }
 
 }
