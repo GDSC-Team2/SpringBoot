@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Getter
 public class OAuthAttributes {
@@ -39,22 +41,32 @@ public class OAuthAttributes {
     }
 
     public User toEntity(){
-//        if(email == "wn8925@sookmyung.ac.kr") {
-//            return User.builder()
-//                    .name(name)
-//                    .email(email)
-//                    .picture(picture)
-//                    .role(Role.USER)
-//                    .build();
-//        }
-//        else {
+        if(isValidEmail(email)) {
+            return User.builder()
+                    .name(name)
+                    .email(email)
+                    .picture(picture)
+                    .role(Role.USER)
+                    .build();
+        }
+        else {
             return User.builder()
                     .name(name)
                     .email(email)
                     .picture(picture)
                     .role(Role.GUEST)
                     .build();
-        //}
+        }
     }
 
+    public static boolean isValidEmail(String email) {
+        boolean err = false;
+        String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@sookmyung.ac.kr$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(email);
+        if (m.matches()) {
+            err = true;
+        }
+        return err;
+    }
 }
