@@ -26,12 +26,12 @@ public class UserApiController {
 
     @PostMapping("/user")  // 유저 등록 API
     @ApiOperation(value = "유저 등록", notes = "유저 등록 API")
-    public Long save(@RequestBody UserSaveRequestDto requestDto) {
-        Optional<User> userEmail = userRepository.findByEmail(requestDto.getEmail());
+    public Long save(@RequestBody User user) {
+        Optional<User> userEmail = userRepository.findByEmail(user.getEmail());
         if(userEmail.isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email already exists!");
         } else{
-            return userService.save(requestDto);
+            return userService.save(user);
         }
     }
 

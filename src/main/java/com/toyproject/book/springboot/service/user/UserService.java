@@ -19,8 +19,8 @@ public class UserService {
     }
 
     @Transactional
-    public Long save(UserSaveRequestDto requestDto) {  // 등록
-        return userRepository.save(requestDto.toEntity()).getId();
+    public Long save(User requestDto) {  // 등록
+        return userRepository.save(requestDto).getId();
     }
 
     /*
