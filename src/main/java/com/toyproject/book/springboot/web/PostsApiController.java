@@ -10,7 +10,6 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 // API를 요청받는 컨트롤러로 요청을 받는 영역

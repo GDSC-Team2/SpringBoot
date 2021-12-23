@@ -4,14 +4,11 @@ import com.toyproject.book.springboot.domain.user.User;
 import com.toyproject.book.springboot.domain.user.UserRepository;
 import com.toyproject.book.springboot.service.user.UserService;
 import com.toyproject.book.springboot.web.dto.UserResponseDto;
-import com.toyproject.book.springboot.web.dto.UserSaveRequestDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
