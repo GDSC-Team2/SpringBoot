@@ -36,11 +36,14 @@ public class PostsService {
 //        return new PostsResponseDto(entity);
 //    }
 
+    /*
     @Transactional
     public PostsResponseDto findByAuthor (String author) {  // 작성자로 조회
         Posts entity = postsRepository.findByAuthor(author);
         return new PostsResponseDto(entity);
     }
+
+     */
 
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){  // 수정
