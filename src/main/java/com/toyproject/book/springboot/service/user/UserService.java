@@ -22,27 +22,4 @@ public class UserService {
     public Long save(User requestDto) {  // 등록
         return userRepository.save(requestDto).getId();
     }
-
-    /*
-    private User saveOrUpdate(UserSaveRequestDto requestDto){
-        User user = userRepository.findByEmail(requestDto.getEmail())
-                .map(user->user.update(requestDto.getName(), requestDto.getPicture()))
-                .orElse(requestDto.toEntity().getId());
-
-
-    private User saveOrUpdate(UserSaveRequestDto requestDto){
-        User user = userRepository.findByEmail(requestDto.getEmail())
-                .map(entity->entity.update(requestDto.getName(), requestDto.getPicture()))
-                .orElse(requestDto.toEntity().getId());
-
-        return userRepository.save(user);
-    }
-
-    @Transactional
-    public void delete(String email) {
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("해당 이메일의 사용자가 없습니다. email : " + email));
-        userRepository.delete(user);
-    }
-     */
-
 }
