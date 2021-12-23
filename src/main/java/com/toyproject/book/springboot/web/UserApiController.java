@@ -27,7 +27,6 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 @RequestMapping("/api/v1")
 @Api(tags = {"ToyProject API Test"})  // Swagger 최상단 Controller 명칭
 public class UserApiController {
-    private CustomOAuth2UserService customOAuth2UserService;
 
     @GetMapping("/user")
     @ApiOperation(value = "사용자 정보", notes = "현재 로그인한 사용자 정보 받는 API")
