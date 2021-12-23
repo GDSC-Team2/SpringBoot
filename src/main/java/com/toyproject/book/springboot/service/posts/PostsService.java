@@ -25,13 +25,10 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
-    /*
-    public PostsResponseDto findByAuthor (String author) {  // 조회
-        Posts entity = postsRepository.findByAuthorContaining(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
+    public PostsResponseDto findByAuthor (String author) {  // 작성자로 조회
+        Posts entity = postsRepository.findByAuthor(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
         return new PostsResponseDto(entity);
     }
-
-     */
 
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){  // 수정
