@@ -26,7 +26,7 @@ public class UserService {
         return userRepository.save(requestDto).getId();
     }
 
-    /*
+
     @Transactional
     public String update(String email, UserUpdateRequestDto requestDto){  // 수정
         User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("해당 아이디가 없습니다. email="+ email));
@@ -34,5 +34,4 @@ public class UserService {
         return email;
     }
 
-     */
 }

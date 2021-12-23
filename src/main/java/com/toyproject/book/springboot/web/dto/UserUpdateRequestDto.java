@@ -2,7 +2,9 @@ package com.toyproject.book.springboot.web.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class UserUpdateRequestDto {
     @ApiModelProperty(example = "사용자 이름")
     private String name;
