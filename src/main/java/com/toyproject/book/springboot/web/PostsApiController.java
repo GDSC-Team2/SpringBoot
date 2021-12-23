@@ -8,6 +8,7 @@ import com.toyproject.book.springboot.web.dto.PostsSaveRequestDto;
 import com.toyproject.book.springboot.web.dto.PostsUpdateRequestDto;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,14 +41,19 @@ public class PostsApiController {
         return postsRepository.findAll();
     }
 
-    /*
+//    @GetMapping("/posts/my")  // 조회 API - 전체 조회
+//    @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
+//    @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
+//    public PostsResponseDto findByAuthorContaining (@PathVariable String author) {
+//        return postsService.findByAuthorContaining();
+//    }
+
     @GetMapping("/posts/my")  // 조회 API - 전체 조회
     @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
     @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
-    public PostsResponseDto findByAuthorContaining (@PathVariable String author) {
-        return postsService.findByAuthorContaining();
+    public List<Posts> getAllPostsByMe() {
+        return postsRepository.getAllPostsByMe();
     }
-     */
 
     @GetMapping("/posts/{id}")  // 조회 API by ID - 아이디로 하나씩 조회
     @ApiOperation(value = "글 조회 by ID", notes = "글 조회 API by ID")

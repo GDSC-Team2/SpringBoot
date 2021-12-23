@@ -1,7 +1,6 @@
 package com.toyproject.book.springboot.web;
 
 import com.toyproject.book.springboot.service.user.UserService;
-import com.toyproject.book.springboot.web.dto.PostsResponseDto;
 import com.toyproject.book.springboot.web.dto.UserResponseDto;
 import com.toyproject.book.springboot.web.dto.UserSaveRequestDto;
 import io.swagger.annotations.Api;

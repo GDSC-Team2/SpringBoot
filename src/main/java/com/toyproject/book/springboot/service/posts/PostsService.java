@@ -6,14 +6,22 @@ import com.toyproject.book.springboot.web.dto.PostsResponseDto;
 import com.toyproject.book.springboot.web.dto.PostsSaveRequestDto;
 import com.toyproject.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // 트랜잭션, 도메인 기능 간의 순서 보장 영역
 @RequiredArgsConstructor
 @Service
 public class PostsService {
     private final PostsRepository postsRepository;
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {  // 등록
@@ -25,13 +33,11 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
-    /*
-    public PostsResponseDto findByAuthor (String author) {  // 조회
-        Posts entity = postsRepository.findByAuthorContaining(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
-        return new PostsResponseDto(entity);
-    }
 
-     */
+//    public PostsResponseDto findByAuthor (String author) {  // 조회
+//        Posts entity = postsRepository.findByAuthorContaining(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
+//        return new PostsResponseDto(entity);
+//    }
 
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){  // 수정
@@ -46,6 +52,10 @@ public class PostsService {
         postsRepository.delete(posts);   //JpaRepository에서 제공하는 메소드
     }
 
-
+    public List<Posts> getAllPostsByMe(){
+        List<Posts> postsList = new ArrayList<>();
+        postsList.addAll(jdbcTemplate.queryForList("select * from user where name=author", Posts.class));
+        return postsList;
+    }
 
 }
