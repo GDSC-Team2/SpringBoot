@@ -26,8 +26,8 @@ public class UserService {
     /*
     private User saveOrUpdate(UserSaveRequestDto requestDto){
         User user = userRepository.findByEmail(requestDto.getEmail())
-                .map(entity->entity.update(requestDto.getName(), requestDto.getPicture()))
-                .orElse(requestDto.toEntity());
+                .map(user->user.update(requestDto.getName(), requestDto.getPicture()))
+                .orElse(requestDto.toEntity().getId());
 
         return userRepository.save(user);
     }
