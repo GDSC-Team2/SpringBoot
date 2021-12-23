@@ -1,5 +1,7 @@
 package com.toyproject.book.springboot.web;
 
+import com.toyproject.book.springboot.domain.user.User;
+import com.toyproject.book.springboot.domain.user.UserRepository;
 import com.toyproject.book.springboot.service.user.UserService;
 import com.toyproject.book.springboot.web.dto.UserResponseDto;
 import com.toyproject.book.springboot.web.dto.UserSaveRequestDto;
@@ -7,7 +9,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -16,11 +22,17 @@ import org.springframework.web.bind.annotation.*;
 public class UserApiController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
     @PostMapping("/user")  // 유저 등록 API
     @ApiOperation(value = "유저 등록", notes = "유저 등록 API")
     public Long save(@RequestBody UserSaveRequestDto requestDto) {
-        return userService.save(requestDto);
+        Optional<User> userEmail = userRepository.findByEmail(requestDto.getEmail());
+        if(userEmail.isPresent()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email already exists!");
+        } else{
+            return userService.save(requestDto);
+        }
     }
 
     @GetMapping("/user/{id}")  // 조회 API by ID - 아이디로 하나씩 조회
