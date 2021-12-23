@@ -42,4 +42,5 @@ public class UserApiController {
     public void delete (@PathVariable String email){
         customOAuth2UserService.delete(email);
     }
+
 }

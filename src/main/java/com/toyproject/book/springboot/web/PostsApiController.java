@@ -47,7 +47,6 @@ public class PostsApiController {
     public PostsResponseDto findByAuthorContaining (@PathVariable String author) {
         return postsService.findByAuthorContaining();
     }
-
      */
 
     @GetMapping("/posts/{id}")  // 조회 API by ID - 아이디로 하나씩 조회

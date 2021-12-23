@@ -22,18 +22,13 @@ public class User extends BaseTimeEntity {
     private String email;
 
     @Column
-    private String picture;
-
-    @Enumerated(EnumType.STRING)   //enum 문자열로 저장되도록
-    @Column(nullable = false)
-    private Role role;    //사용자 권한 관리
+    private String picture;//사용자 권한 관리
 
     @Builder
-    public User(String name, String email, String picture, Role role){
+    public User(String name, String email, String picture){
         this.name = name;
         this.email = email;
         this.picture = picture;
-        this.role = role;
     }
 
     public User update(String name, String picture){
@@ -41,9 +36,5 @@ public class User extends BaseTimeEntity {
         this.picture = picture;
 
         return this;
-    }
-
-    public String getRoleKey(){
-        return this.role.getKey();
     }
 }
