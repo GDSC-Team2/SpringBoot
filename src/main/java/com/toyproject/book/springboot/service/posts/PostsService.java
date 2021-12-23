@@ -20,9 +20,6 @@ import java.util.List;
 public class PostsService {
     private final PostsRepository postsRepository;
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
-
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {  // 등록
         return postsRepository.save(requestDto.toEntity()).getId();
@@ -57,11 +54,5 @@ public class PostsService {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
         postsRepository.delete(posts);   //JpaRepository에서 제공하는 메소드
     }
-
-//    public List<Posts> getAllPostsByMe(){
-//        List<Posts> postsList = new ArrayList<>();
-//        postsList.addAll(jdbcTemplate.queryForList("select * from user where name=author", Posts.class));
-//        return postsList;
-//    }
 
 }

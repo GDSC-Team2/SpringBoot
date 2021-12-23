@@ -3,6 +3,7 @@ package com.toyproject.book.springboot.web;
 import com.toyproject.book.springboot.domain.posts.Posts;
 import com.toyproject.book.springboot.domain.posts.PostsRepository;
 import com.toyproject.book.springboot.service.posts.PostsService;
+import com.toyproject.book.springboot.service.user.UserRepository;
 import com.toyproject.book.springboot.web.dto.PostsResponseDto;
 import com.toyproject.book.springboot.web.dto.PostsSaveRequestDto;
 import com.toyproject.book.springboot.web.dto.PostsUpdateRequestDto;
@@ -22,6 +23,7 @@ public class PostsApiController {
 
     private final PostsService postsService;
     private final PostsRepository postsRepository;
+    private final UserRepository userRepository;
 
     @GetMapping("/home")  // 스프링부트 리액트 연동 테스트
     @ApiOperation(value = "연동 테스트", notes = "스프링부트와 리액트 연동을 테스트한다.")  // Swagger에 사용하는 API에 대한 간단 설명
@@ -42,12 +44,12 @@ public class PostsApiController {
     }
 
 
-//    @GetMapping("/posts/my")  // 조회 API - 전체 조회
-//    @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
-//    @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
-//    public List<Posts> getAllPostsByMe() {
-//        return postsRepository.getAllPostsByMe();
-//    }
+    @GetMapping("/posts/my")  // 조회 API - 전체 조회
+    @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
+    @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
+    public List<Posts> getAllPostsByMe() {
+        return userRepository.getAllPostsByMe();
+    }
 
     @GetMapping("/posts/{author}")  // 조회 API by author - 아이디로 하나씩 조회
     @ApiOperation(value = "글 조회 by author", notes = "글 조회 API by author")
