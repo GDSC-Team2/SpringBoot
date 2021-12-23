@@ -30,6 +30,7 @@ public class UserApiController {
         Optional<User> userEmail = userRepository.findByEmail(user.getEmail());
         if(userEmail.isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email already exists!");
+            // userService.update(userEmail, );
         } else{
             return userService.save(user);
         }
