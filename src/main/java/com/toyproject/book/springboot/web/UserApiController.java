@@ -1,6 +1,5 @@
 package com.toyproject.book.springboot.web;
 
-import com.toyproject.book.springboot.domain.user.UserRepository;
 import com.toyproject.book.springboot.service.user.UserService;
 import com.toyproject.book.springboot.web.dto.PostsResponseDto;
 import com.toyproject.book.springboot.web.dto.UserResponseDto;
