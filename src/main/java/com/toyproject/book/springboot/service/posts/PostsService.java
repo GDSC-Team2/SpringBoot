@@ -58,10 +58,10 @@ public class PostsService {
         postsRepository.delete(posts);   //JpaRepository에서 제공하는 메소드
     }
 
-    public List<Posts> getAllPostsByMe(){
-        List<Posts> postsList = new ArrayList<>();
-        postsList.addAll(jdbcTemplate.queryForList("select * from user where name=author", Posts.class));
-        return postsList;
-    }
+//    public List<Posts> getAllPostsByMe(){
+//        List<Posts> postsList = new ArrayList<>();
+//        postsList.addAll(jdbcTemplate.queryForList("select * from user where name=author", Posts.class));
+//        return postsList;
+//    }
 
 }

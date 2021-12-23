@@ -42,12 +42,12 @@ public class PostsApiController {
     }
 
 
-    @GetMapping("/posts/my")  // 조회 API - 전체 조회
-    @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
-    @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
-    public List<Posts> getAllPostsByMe() {
-        return postsRepository.getAllPostsByMe();
-    }
+//    @GetMapping("/posts/my")  // 조회 API - 전체 조회
+//    @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
+//    @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
+//    public List<Posts> getAllPostsByMe() {
+//        return postsRepository.getAllPostsByMe();
+//    }
 
     @GetMapping("/posts/{author}")  // 조회 API by author - 아이디로 하나씩 조회
     @ApiOperation(value = "글 조회 by author", notes = "글 조회 API by author")
