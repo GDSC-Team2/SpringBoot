@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 // 트랜잭션, 도메인 기능 간의 순서 보장 영역
 @RequiredArgsConstructor
 @Service
@@ -25,8 +27,9 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+    @Transactional
     public PostsResponseDto findByAuthor (String author) {  // 작성자로 조회
-        Posts entity = postsRepository.findByAuthor(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
+        Posts entity = postsRepository.findByAuthor(author);
         return new PostsResponseDto(entity);
     }
 
