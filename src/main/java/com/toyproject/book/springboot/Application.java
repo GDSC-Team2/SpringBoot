@@ -4,7 +4,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 // 메인 클래스로 내장 WAS 실행
-@EnableJpaAuditing
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
