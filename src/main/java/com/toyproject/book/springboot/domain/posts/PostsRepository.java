@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface PostsRepository extends JpaRepository<Posts, Long> {
     Optional<Posts> findByAuthor(String author);   //이메일로 이미 가입한 회원인지 아닌지 확인
 
-    public List<Posts> findByName(String name);
 }
