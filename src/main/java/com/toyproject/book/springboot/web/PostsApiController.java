@@ -8,7 +8,6 @@ import com.toyproject.book.springboot.web.dto.PostsSaveRequestDto;
 import com.toyproject.book.springboot.web.dto.PostsUpdateRequestDto;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
