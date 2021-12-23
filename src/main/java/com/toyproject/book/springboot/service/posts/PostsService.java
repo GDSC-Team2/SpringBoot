@@ -20,13 +20,8 @@ public class PostsService {
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
-    public PostsResponseDto findById (Long id) {  // 아이디로 조회
+    public PostsResponseDto findById (Long id) {  // 조회
         Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
-        return new PostsResponseDto(entity);
-    }
-
-    public PostsResponseDto findByName (String author) {  // 작성자로 조회
-        Posts entity = postsRepository.findByName(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
         return new PostsResponseDto(entity);
     }
 
