@@ -23,9 +23,8 @@ public class UserService {
         return userRepository.save(requestDto.toEntity()).getId();
     }
 
-    /*
-    private User saveOrUpdate(String email, UserSaveRequestDto requestDto){
-        User user = userRepository.findByEmail(email)
+    private User saveOrUpdate(UserSaveRequestDto requestDto){
+        User user = userRepository.findByEmail(requestDto.getEmail())
                 .map(entity->entity.update(requestDto.getName(), requestDto.getPicture()))
                 .orElse(requestDto.toEntity());
 
@@ -37,7 +36,5 @@ public class UserService {
         User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("해당 이메일의 사용자가 없습니다. email : " + email));
         userRepository.delete(user);
     }
-
-     */
 
 }
