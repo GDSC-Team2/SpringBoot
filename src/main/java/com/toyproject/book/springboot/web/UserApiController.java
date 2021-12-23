@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1")
-@Api(tags = {"ToyProject API Test"})  // Swagger 최상단 Controller 명칭
+@Api(tags = {"ToyProject API Test - user"})  // Swagger 최상단 Controller 명칭
 public class UserApiController {
 
     private final UserService userService;
