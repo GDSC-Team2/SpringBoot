@@ -25,6 +25,14 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+    /*
+    public PostsResponseDto findByAuthor (String author) {  // 조회
+        Posts entity = postsRepository.findByAuthorContaining(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
+        return new PostsResponseDto(entity);
+    }
+
+     */
+
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){  // 수정
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
@@ -37,5 +45,7 @@ public class PostsService {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
         postsRepository.delete(posts);   //JpaRepository에서 제공하는 메소드
     }
+
+
 
 }

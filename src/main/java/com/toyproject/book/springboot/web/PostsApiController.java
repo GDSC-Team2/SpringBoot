@@ -10,8 +10,6 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
 // API를 요청받는 컨트롤러로 요청을 받는 영역
@@ -41,6 +39,16 @@ public class PostsApiController {
     public List<Posts> getAllPosts() {
         return postsRepository.findAll();
     }
+
+    /*
+    @GetMapping("/posts/my")  // 조회 API - 전체 조회
+    @ApiOperation(value = "내 글 조회", notes = "내 글 조회 API")
+    @ApiImplicitParam(name = "author", value = "작성자")  // Swagger에 사용하는 파라미터에 대해 설명
+    public PostsResponseDto findByAuthorContaining (@PathVariable String author) {
+        return postsService.findByAuthorContaining();
+    }
+
+     */
 
     @GetMapping("/posts/{id}")  // 조회 API by ID - 아이디로 하나씩 조회
     @ApiOperation(value = "글 조회 by ID", notes = "글 조회 API by ID")
