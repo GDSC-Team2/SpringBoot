@@ -23,14 +23,14 @@ public class UserService {
         return userRepository.save(requestDto.toEntity()).getId();
     }
 
-    /*
-    private User saveOrUpdate(String email, UserSaveRequestDto requestDto){
-        User user = userRepository.findByEmail(email)
-                .map(entity->entity.update(requestDto.getName(), requestDto.getPicture()))
-                .orElse(requestDto.toEntity());
 
-        return userRepository.save(user);
-    }
+//    private User saveOrUpdate(UserSaveRequestDto requestDto){
+//        User user = userRepository.findByEmail(requestDto.getEmail())
+//                .map(entity->entity.update(requestDto.getName(), requestDto.getPicture()))
+//                .orElse(requestDto.toEntity().getId());
+//
+//        return userRepository.save(user);
+//    }
 
     @Transactional
     public void delete(String email) {
@@ -38,6 +38,6 @@ public class UserService {
         userRepository.delete(user);
     }
 
-     */
+
 
 }
