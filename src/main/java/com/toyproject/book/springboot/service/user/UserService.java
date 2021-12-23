@@ -1,9 +1,7 @@
 package com.toyproject.book.springboot.service.user;
 
-import com.toyproject.book.springboot.domain.posts.Posts;
 import com.toyproject.book.springboot.domain.user.User;
 import com.toyproject.book.springboot.domain.user.UserRepository;
-import com.toyproject.book.springboot.web.dto.PostsResponseDto;
 import com.toyproject.book.springboot.web.dto.UserResponseDto;
 import com.toyproject.book.springboot.web.dto.UserSaveRequestDto;
 import lombok.RequiredArgsConstructor;

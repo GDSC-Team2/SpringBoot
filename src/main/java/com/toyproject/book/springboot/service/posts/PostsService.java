@@ -11,7 +11,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> 42b951c127de8ab3684f110f7270a8086d93f996
 import java.util.List;
 
 // 트랜잭션, 도메인 기능 간의 순서 보장 영역
@@ -33,12 +36,21 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+<<<<<<< HEAD
 
 //    public PostsResponseDto findByAuthor (String author) {  // 조회
 //        Posts entity = postsRepository.findByAuthorContaining(author).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. author="+ author));
 //        return new PostsResponseDto(entity);
 //    }
 
+=======
+    @Transactional
+    public PostsResponseDto findByAuthor (String author) {  // 작성자로 조회
+        Posts entity = postsRepository.findByAuthor(author);
+        return new PostsResponseDto(entity);
+    }
+
+>>>>>>> 42b951c127de8ab3684f110f7270a8086d93f996
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){  // 수정
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
