@@ -29,8 +29,7 @@ public class UserApiController {
     public Long save(@RequestBody User user) {
         Optional<User> userEmail = userRepository.findByEmail(user.getEmail());
         if(userEmail.isPresent()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email already exists!");
-            // userService.update(userEmail, );
+             return userService.update(user.getEmail(), user);
         } else{
             return userService.save(user);
         }

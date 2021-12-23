@@ -28,10 +28,10 @@ public class UserService {
 
 
     @Transactional
-    public String update(String email, UserUpdateRequestDto requestDto){  // 수정
+    public Long update(String email, User requestDto){  // 수정
         User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("해당 아이디가 없습니다. email="+ email));
         user.update(requestDto.getName(), requestDto.getPicture());
-        return email;
+        return requestDto.getId();
     }
 
 }
