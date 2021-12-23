@@ -23,6 +23,7 @@ public class User extends BaseTimeEntity {
 
     @Column
     private String picture;
+
     @Builder
     public User(String name, String email, String picture){
         this.name = name;
@@ -30,10 +31,8 @@ public class User extends BaseTimeEntity {
         this.picture = picture;
     }
 
-    public User update(String name, String picture){
+    public void update(String name, String picture){
         this.name = name;
         this.picture = picture;
-
-        return this;
     }
 }
