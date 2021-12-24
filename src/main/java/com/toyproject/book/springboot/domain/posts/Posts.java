@@ -58,7 +58,7 @@ public class Posts extends BaseTimeEntity {
     }
 
     // 게시글 수정하는 함수
-    public void update(String title, String description, String link, String contact, String price, String date){
+    public void update(String title, String description, String link, String contact, String date, String price){
         this.title = title;
         this.description = description;
         this.link = link;
