@@ -47,7 +47,7 @@ public class Posts extends BaseTimeEntity {
 
     // 필드에 값을 채우기 위한 빌더 클래스 (생성자 대신 사용)
     @Builder
-    public Posts(String title, String description, String link, String contact, String price, String date, String author) {
+    public Posts(String title, String description, String link, String contact, String date, String price, String author) {
         this.title = title;
         this.description = description;
         this.link = link;
