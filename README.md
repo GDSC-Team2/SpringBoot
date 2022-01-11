@@ -29,10 +29,14 @@
 ![슬라이드12](https://user-images.githubusercontent.com/87821678/148904438-daf994e3-094d-47d9-878d-3eb389554d64.PNG)
 ![슬라이드13](https://user-images.githubusercontent.com/87821678/148904440-789efbfe-14c0-4e36-a027-0ab4648028c1.PNG)
 
+##
+
 ❄ **Android**
 
 ![슬라이드14](https://user-images.githubusercontent.com/87821678/148904444-d9571059-8679-4ea7-8097-a626ed7b2d9f.PNG)
 ![슬라이드15](https://user-images.githubusercontent.com/87821678/148904447-f6c433a1-e5de-40f6-9b8b-bf7b1581960b.PNG)
+
+##
 
 ❄ **React** 
 
