@@ -1,4 +1,4 @@
-# SpringBoot Toyproject
+# SpringBoot Toyproject (공구리숙트)
 2021 하반기 Spring boot Study 이후 ToyProject를 정리해놓은 폴더 (Web/App Team2)
 
 : 각자 스터디 후, 숙명인들이 '공구' 를 편하게 할 수 있도록 공구 전문 서비스 기능의 CRUD '공구리숙트' 웹/앱 제작
@@ -12,6 +12,11 @@
 
 **Back**
 - [SpringBoot](https://github.com/GDSC-Team2/SpringBoot)
+
+<br/>
+
+## 회의 노션
+[GDSC WEB/APP PROJECT TEAM 2 공구리숙트](https://eggplant-raccoon-ce3.notion.site/GDSC-WEB-APP-PROJECT-TEAM-2-576468160adb4ea39ab8e4d7cbf2f52d)
 
 <br/>
 
