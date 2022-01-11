@@ -1,7 +1,7 @@
 # SpringBoot Toyproject
 2021 하반기 Spring boot Study 이후 ToyProject를 정리해놓은 폴더 (Web/App Team2)
 
-: 각자 스터디 후, 숙명인들이 '공구' 를 편하게 할 수 있도록 공구 전문 서비스 기능의 CRUD '공구리숙트' 웹페이지와 앱 제작
+: 각자 스터디 후, 숙명인들이 '공구' 를 편하게 할 수 있도록 공구 전문 서비스 기능의 CRUD '공구리숙트' 웹/앱 제작
 
 <br/>
 
